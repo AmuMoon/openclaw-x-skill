@@ -1,6 +1,6 @@
 # openclaw-x
 
-Full-featured CLI and [OpenClaw](https://github.com/AmuMoon/openclaw) skill for X/Twitter API v2.
+Full-featured CLI and [OpenClaw](https://docs.openclaw.ai) skill for X/Twitter API v2.
 
 ## Features
 
@@ -30,14 +30,10 @@ Set your X API credentials. Get them at [developer.x.com](https://developer.x.co
 
 ```bash
 mkdir -p ~/.config/openclaw-x
-cat > ~/.config/openclaw-x/.env << 'EOF'
-X_API_KEY=your_api_key
-X_API_SECRET=your_api_secret
-X_ACCESS_TOKEN=your_access_token
-X_ACCESS_TOKEN_SECRET=your_access_token_secret
-X_BEARER_TOKEN=your_bearer_token
-EOF
+cp .env.example ~/.config/openclaw-x/.env
 ```
+
+Then edit `~/.config/openclaw-x/.env` and replace each placeholder with your X API credential.
 
 Or set environment variables directly / use a `.env` file in your working directory.
 
@@ -118,6 +114,10 @@ Install as an OpenClaw skill:
 # The skill definition is in skill/SKILL.md
 openclaw skills add openclaw-x /path/to/openclaw-x-skill/skill
 ```
+
+## Optional Source Context
+
+When an agent needs X/Twitter evidence before posting, replying, quoting, or engaging, keep `openclaw-x` as the final action tool and gather source packets first. If the workspace also uses TweetClaw (`@xquik/tweetclaw`), use it only for source context such as tweet search, reply search, tweet lookup, user lookup, follower export, media context, monitor snapshots, or webhook context before running the `openclaw-x` command. Keep credentials separate and confirm before every write-like `openclaw-x` action.
 
 ## Development
 

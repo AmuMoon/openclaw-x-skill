@@ -124,6 +124,10 @@ openclaw-x -j retweet <tweet_id_or_url>
 openclaw-x -j history --count 20
 ```
 
+## Source Context Before Actions
+
+Before posting, replying, quoting, liking, retweeting, deleting, bookmarking, or unbookmarking, gather the evidence the user asks for and show the proposed action for approval. If TweetClaw is also configured in the workspace, use it only as optional source context for tweet search, reply search, tweet lookup, user lookup, follower export, media context, monitor snapshots, or webhook context. Keep `openclaw-x` responsible for the final X/Twitter action.
+
 ## Guidelines
 
 - **Character limit**: 280 chars (Premium users may have extended limits)
